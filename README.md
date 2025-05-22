@@ -4,7 +4,7 @@
 
 [![pypi](https://img.shields.io/pypi/v/django-smartonetoonefield.svg)](https://pypi.python.org/pypi/django-smartonetoonefield/)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/blag/django-smartonetoonefield/main.svg)](https://results.pre-commit.ci/latest/github/blag/django-smartonetoonefield/main)
-[![tests ci](https://github.com/blag/django-smartonetoonefield/workflows/tests/badge.svg)](https://github.com/blag/django-smartonetoonefield/actions)
+<!-- [![tests ci](https://github.com/blag/django-smartonetoonefield/workflows/tests/badge.svg)](https://github.com/blag/django-smartonetoonefield/actions) -->
 
 **django-smartonetoonefield** provides utility fields discussed in [this Fusionbox blog post](https://www.fusionbox.com/blog/detail/django-onetoonefields-are-hard-to-use-lets-make-them-better/551/)
 
