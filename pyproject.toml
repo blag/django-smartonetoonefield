@@ -2,11 +2,13 @@
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry]
+[project]
 name = "django-smartonetoonefield"
-version = "0.1.0"
+version = "0.1.1"
 description = "Django app to make one-to-one relations easier to work with"
-authors = ["blag <blag@users.noreply.github.com>"]
+authors = [
+    {name = "blag", email = "blag@users.noreply.github.com"},
+]
 license = "BSD"
 readme = "README.md"
 classifiers = [
@@ -25,11 +27,17 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-packages = [
-	{include = "src/smartonetoonefield"},
+requires-python = ">=3.10"
+dependencies = [
+    "django>=4.2",
 ]
 
+[tool.poetry]
+packages = [
+    {include = "smartonetoonefield", from = "src"},
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-django = ">4.2"
+[project.urls]
+Repository = "https://github.com/blag/django-smartonetoonefield"
+Documentation = "https://www.fusionbox.com/blog/detail/django-onetoonefields-are-hard-to-use-lets-make-them-better/551/"
+Issues = "https://github.com/blag/django-smartonetoonefield/issues"
