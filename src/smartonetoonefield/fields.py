@@ -18,28 +18,11 @@ class AutoOneToOneField(OneToOneField):
 
 
 class SoftReverseOneToOneDescriptor(ReverseOneToOneDescriptor):
-    def __init__(self, *args, **kwargs):
-        self.flag_name = kwargs.pop('flag_name')
-        super().__init__(*args, **kwargs)
-
     def __get__(self, *args, **kwargs):
         try:
             return super().__get__(*args, **kwargs)
         except self.RelatedObjectDoesNotExist:
             return None
-
-    def contribute_to_related_class(self, cls, related):
-        super().contribute_to_related_class(cls, related)
-
-        if not self.flag_name.endswith('+'):
-            def flag(model_instance):
-                return hasattr(model_instance, related.get_accessor_name())
-            setattr(cls, self.flag_name, property(flag))
-
-    def deconstruct(self):
-        name, path, args, kwargs = super().deconstruct()
-        kwargs['flag_name'] = self.flag_name
-        return name, path, args, kwargs
 
 
 class SoftOneToOneField(OneToOneField):

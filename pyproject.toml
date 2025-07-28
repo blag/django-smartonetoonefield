@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [project]
 name = "django-smartonetoonefield"
-version = "0.1.1"
+version = "0.1.2"
 description = "Django app to make one-to-one relations easier to work with"
 authors = [
     {name = "blag", email = "blag@users.noreply.github.com"},
