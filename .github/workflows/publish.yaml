@@ -15,9 +15,7 @@ jobs:
       - name: Install latest version of Poetry
         run: |
           pipx install poetry
-          dirname $(which poetry) >> $GITHUB_PATH
-          echo "GITHUB_PATH:"
-          cat $GITHUB_PATH
+          echo "/root/.local/bin" >> $GITHUB_PATH
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -26,8 +24,6 @@ jobs:
           cache-dependency-path: pyproject.toml
       - name: Get Poetry version
         run: |
-          echo "GITHUB_PATH:"
-          cat $GITHUB_PATH
           poetry --version
       - name: Build with Poetry
         run: |
