@@ -32,16 +32,16 @@ class SoftOneToOneField(OneToOneField):
 class AddFlagOneToOneField(OneToOneField):
     def __init__(self, *args, **kwargs):
         self.flag_name = kwargs.pop('flag_name')
-        super(AddFlagOneToOneField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def contribute_to_related_class(self, cls, related):
-        super(AddFlagOneToOneField, self).contribute_to_related_class(cls, related)
+        super().contribute_to_related_class(cls, related)
 
         def flag(model_instance):
             return hasattr(model_instance, related.get_accessor_name())
         setattr(cls, self.flag_name, property(flag))
 
     def deconstruct(self):
-        name, path, args, kwargs = super(AddFlagOneToOneField, self).deconstruct()
+        name, path, args, kwargs = super().deconstruct()
         kwargs['flag_name'] = self.flag_name
         return name, path, args, kwargs
